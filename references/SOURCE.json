@@ -1,0 +1,16 @@
+{
+  "upstream": "https://github.com/cursor/plugins/tree/main/pstack",
+  "repo": "cursor/plugins",
+  "path": "pstack",
+  "commit": "0b8e952052d482ee6de06deebf14d590d77b1b34",
+  "commit_date": "2026-10-18T07:31:07Z",
+  "version": "0.15.26",
+  "license": "MIT (Copyright (c) 2026 Lauren Tan)",
+  "ported_at": "2026-10-17",
+  "counts": {
+    "principles": 24,
+    "playbooks": 23,
+    "skill_files": 86
+  },
+  "ported_by": "天音 Amane (Hermes port; upstream text kept verbatim)"
+}
