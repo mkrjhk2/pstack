@@ -107,13 +107,15 @@ Hermes 落地位（實跑過，唔係推演）：
 
 authoring-a-skill／autonomous-run／autopilot-full／autopilot-stack／babysit／bug-fix／eval／feature／hillclimb／investigation／multi-phase-plan／opening-a-pr／orchestrate／pause-safely／perf-issue／prototype／refactoring／runtime-forensics／session-pickup／shipping／trace-forensics／visual-parity／worktree-cleanup
 
-## 31 個 skill
+## 32 個 skill
 
-architect／arena／automate-me／benchmark-checklist／blast-radius／bro／correct／create-formal-verification-skill／create-verification-skill／figure-it-out／how／interrogate／in-your-own-words／ketchup／maintain-verification-skill／make-bot-ui／no-comments／poteto-help／poteto-mode／recall／reflect／setup-pstack／sharpen／show-me-your-work／swarm／tdd／teach／technical-writing／typescript-best-practices／unslop／why
+architect／arena／automate-me／benchmark-checklist／blast-radius／bro／correct／create-formal-verification-skill／create-verification-skill／figure-it-out／how／interrogate／in-your-own-words／ketchup／maintain-formal-verification-skill／maintain-verification-skill／make-bot-ui／no-comments／poteto-help／poteto-mode／recall／reflect／setup-pstack／sharpen／show-me-your-work／swarm／tdd／teach／technical-writing／typescript-best-practices／unslop／why
 
 `setup-pstack`／`poteto-help` 係 Cursor 安裝器同說明，Hermes 用唔到佢哋嘅命令——要睇「點用」讀 `references/skills/poteto-help/references/recipes.md`。
 
 ## 更新上游
+
+**本 port 已經有公開 repo**：`github.com/mkrjhk2/pstack`（root ＝ `SKILL.md` ＋ `references/` ＋ `README.md` ＋ `PROVENANCE.md` ＋ 上游 MIT 全文）。另一個 host 想用就直接 clone 落 `$HERMES_HOME/skills/software-development/pstack`，**唔需要重新 port 一次**；只有要跟上游新 commit 才做下面嘅步驟。
 
 ```bash
 cd "$TMPDIR" && curl -sL -o p.tgz https://codeload.github.com/cursor/plugins/tar.gz/refs/heads/main && tar xzf p.tgz
@@ -129,7 +131,7 @@ cd "$TMPDIR" && curl -sL -o p.tgz https://codeload.github.com/cursor/plugins/tar
 
 ## 驗證狀態（2026-10-17 建 port 時實測）
 
-- 檔案：原則 24／playbook 23／skill 檔 86（含子 references）／總 133 個 md，全部對得上上游件數。
+- 檔案：原則 24／playbook 23／skill 檔 87（含子 references）＝三層 134，加 `mapping.md`／`porting-recipe.md` 共 **136 個 md**，全部對得上上游件數（同步到上游 `88d47514b8`／v0.15.29，2026-10-20）。
 - `skill_view` 讀得到 SKILL.md 同 `references/` 內任何一份（本 port 用呢個方式自測）。
 - **`tdd` 紅綠循環已實測**（2026-10-17，Hermes terminal）：寫測試 → 跑 → 確認 fail 嘅理由對（`'--a--b--' != 'a-b'`）→ 最小修正 → 綠；再把 bug 放回去 → 再紅 → 還原 → 綠。四步都係真跑出嚟，唔係推演。
 - **未驗**：`interrogate`／`swarm`／`arena` 嘅多 model 派工（要燒 API call，未跑）。
